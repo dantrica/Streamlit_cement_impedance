@@ -218,8 +218,8 @@ with st.container():
         plt.gca().set_aspect('equal', 'box')
         plt.xlabel(r"real(Z) [k$\Omega$]")
         plt.ylabel(r"-imag(Z) [k$\Omega$]")
-        plt.ylim(0, 50)
-        plt.xlim(0, 50)
+        #plt.ylim(0, 50)
+        #plt.xlim(0, 50)
         plt.legend(labels=sl)
         
         st.pyplot(fig1)
