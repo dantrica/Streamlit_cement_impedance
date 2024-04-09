@@ -237,7 +237,7 @@ with st.container():
         #----------------------------------------------------------------------
         plt.subplot(2,1,1)
         plt.xlim(0.1, 1e6)
-        plt.ylim(0, 30)
+        #plt.ylim(0, 30)
         plt.xlabel('Frequency [Hz]')
         plt.ylabel(r"real(Z) [k$\Omega$]")
         plt.gca().yaxis.set_label_position("right")
@@ -246,7 +246,7 @@ with st.container():
         #----------------------------------------------------------------------
         plt.subplot(2,1, 2)
         plt.xlim(0.1, 1e6)
-        plt.ylim(0, 10)
+        #plt.ylim(0, 10)
         plt.xlabel('Frequency [Hz]')
         plt.ylabel(r"-imag(Z)  [k$\Omega$]")
         plt.gca().yaxis.set_label_position("right")
