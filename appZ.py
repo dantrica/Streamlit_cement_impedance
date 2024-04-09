@@ -3,6 +3,12 @@
 Created on Sun Mar  3 22:34:44 2024
 
 @author: Daniel A- Triana-Camacho
+
+The AppZ is a window for inputting electrical impedance data into 
+the Key Data Source Since impedance (KDssZ) library to optimize a 
+three-part lumped circuit model. The App provides Nyquist and Bode 
+plots along with a table that contains the optimized parameters 
+from the model.
 """
 
 import streamlit as st
@@ -33,7 +39,6 @@ if 'selected_filename' not in st.session_state:
 #------------------------------------------------------------------------------
 # Building the left option sidebar
 with st.sidebar:
-    
     sidebar_title = "KDssZ Options"
     st.sidebar.title(sidebar_title)
     
