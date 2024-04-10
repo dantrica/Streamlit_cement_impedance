@@ -2,7 +2,7 @@
 """
 Created on Mon Feb 26 22:03:30 2024
 
-@author: Daniel Andrés Triana Camacho
+@authors: David Alejandro Miranda Mercado and Daniel Andrés Triana Camacho
 """
 
 import numpy as np
