@@ -226,11 +226,11 @@ with st.container():
         xlim = []
         for sr in Zreal:
             xlim.append(max(sr))
-        #ylim = []
-        #for si in new_Zimag:
-        #    ylim.append(si.max())
-        plt.xlim(0, max(xlim))
-        #plt.ylim(0, max(ylim))
+        ylim = []
+        for si in Zimag:
+            ylim.append(si.max())
+        plt.xlim(0, np.max(xlim))
+        plt.ylim(0, np.max(ylim))
         plt.legend(labels=sl)
         
         st.pyplot(fig1)
