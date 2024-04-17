@@ -210,25 +210,35 @@ with st.container():
         
         if len(KDss.labels) == 0:
             sl = ''
+            xlim = 30
+            ylim = 30
         elif len(KDss.labels) == 1:
             sl = KDss.labels[0], 'Model Fitting'
+            # Nyquist plot limmits
+            xlim = []
+            for sr in Zreal:
+                xlim.append(max(sr))
+            ylim = []
+            for si in Zimag:
+                ylim.append(si.max())
         else:
             sl = []
             for sj in KDss.labels:
                 sl.append(sj)
             sl.append('Model Fitting')
+            # Nyquist plot limmits
+            xlim = []
+            for sr in Zreal:
+                xlim.append(max(sr))
+            ylim = []
+            for si in Zimag:
+                ylim.append(si.max())
         
         plt.plot(new_Zreal, new_Zimag, linestyle = 'None', marker='o', markerfacecolor='None')
         plt.plot(new_Zreal_model, new_Zimag_model, 'k:')
         plt.gca().set_aspect('equal', 'box')
         plt.xlabel(r"real(Z) [k$\Omega$]")
         plt.ylabel(r"-imag(Z) [k$\Omega$]")
-        xlim = []
-        for sr in Zreal:
-            xlim.append(max(sr))
-        ylim = []
-        for si in Zimag:
-            ylim.append(si.max())
         plt.xlim(0, np.max(xlim))
         plt.ylim(0, np.max(ylim))
         plt.legend(labels=sl)
