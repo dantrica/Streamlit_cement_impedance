@@ -225,12 +225,12 @@ with st.container():
         plt.ylabel(r"-imag(Z) [k$\Omega$]")
         xlim = []
         for sr in new_Zreal:
-            xlim.append(sr.max())
-        ylim = []
-        for si in new_Zimag:
-            ylim.append(si.max())
+            xlim.append(max(sr))
+        #ylim = []
+        #for si in new_Zimag:
+        #    ylim.append(si.max())
         plt.xlim(0, max(xlim))
-        plt.ylim(0, max(ylim))
+        #plt.ylim(0, max(ylim))
         plt.legend(labels=sl)
         
         st.pyplot(fig1)
