@@ -223,13 +223,13 @@ with st.container():
         plt.gca().set_aspect('equal', 'box')
         plt.xlabel(r"real(Z) [k$\Omega$]")
         plt.ylabel(r"-imag(Z) [k$\Omega$]")
-        #xlim = []
-        #for sr in new_Zreal:
-        #    xlim.append(max(sr))
+        xlim = []
+        for sr in Zreal:
+            xlim.append(max(sr))
         #ylim = []
         #for si in new_Zimag:
         #    ylim.append(si.max())
-        plt.xlim(0, max(new_Zreal))
+        plt.xlim(0, max(xlim))
         #plt.ylim(0, max(ylim))
         plt.legend(labels=sl)
         
