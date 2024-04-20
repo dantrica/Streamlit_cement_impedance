@@ -188,9 +188,10 @@ class KDssZ:
 
     def model(self, i, f, Z, label, f_hight=25000, f_middle=10000, 
                        f_low=1, f_=np.logspace(-2, 8, 2000), f2=np.logspace(-5, 8, 2000)):
+        
         Xi, DX, tau, alpha = self.get_cole_params(f[f>f_hight], Z[f>f_hight])
-    
         Z_ = self.cole_cole(f_, Xi, DX, tau, alpha) # Xi + DX / ( 1 + (2j*np.pi*f_*tau)**(1-alpha) )#
+        
         x = np.real(Z)[f<f_low]
         y = -np.imag(Z)[f<f_low]
         p = np.polyfit(x, y, 1)
