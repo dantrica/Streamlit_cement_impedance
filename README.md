@@ -28,7 +28,7 @@ $\begin{figure}[h]
     \label{fig:fea}
 \end{figure}$
 
-$\begin{itemize}
+\begin{itemize}
     \item[1.] Push button \texttt{Browse Files} to upload \texttt{.txt} files with electrical impedance spectroscopy data.
     \item[2.] Help menu explaining the format files to be received; help hints boxes to report a file was added previously or it is already in the optimization zone; and help tips on buttons.
     \item[3.] Choosing the file data since Select tag.
@@ -36,7 +36,7 @@ $\begin{itemize}
     \item[5.] Buttons \texttt{Run} and \texttt{Reset}, to start the optimization, create the plots and return the DataFrame with the parameters.
     \item[6.] Figures: wide mode and saving options.
     \item[7.] Table: wide mode, searching information into the DataFrame, and save data as \texttt{.csv} file.
-\end{itemize}$
+\end{itemize}
 
 ## License information:
 
