@@ -21,7 +21,7 @@ $\texttt{KDssZ}$ has been developed to optimize experimental electrical impedanc
 
 The main functionalities of the software KDssZ are enumerated according to the following list:
 
-1. Push button \texttt{Browse Files} to upload \texttt{.txt} files with electrical impedance spectroscopy data.
+1. Push button $\texttt{Browse Files}$ to upload $\texttt{.txt}$ files with electrical impedance spectroscopy data.
 2. Help menu explaining the format files to be received; help hints boxes to report whether a file was added previously or it is already in the optimization zone; and help tips on buttons.
 3. Choosing the file data since Select tag.
 4. Buttons $\texttt{Add data}$ and $\texttt{Remove}$, to add or remove data to the optimization zone.
