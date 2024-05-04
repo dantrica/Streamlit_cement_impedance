@@ -21,22 +21,13 @@ $\texttt{KDssZ}$ has been developed to optimize experimental electrical impedanc
 
 The main functionalities of the software KDssZ are displayed in Figure~\ref{}, and enumerated according to the following list:
 
-$\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Figures/features.pdf}
-    \caption{Features of the web software KDssZ.}
-    \label{fig:fea}
-\end{figure}$
-
-\begin{itemize}
-    \item[1.] Push button \texttt{Browse Files} to upload \texttt{.txt} files with electrical impedance spectroscopy data.
-    \item[2.] Help menu explaining the format files to be received; help hints boxes to report a file was added previously or it is already in the optimization zone; and help tips on buttons.
-    \item[3.] Choosing the file data since Select tag.
-    \item[4.] Buttons \texttt{Add data} and \texttt{Remove}, to add or remove data to the optimization zone.
-    \item[5.] Buttons \texttt{Run} and \texttt{Reset}, to start the optimization, create the plots and return the DataFrame with the parameters.
-    \item[6.] Figures: wide mode and saving options.
-    \item[7.] Table: wide mode, searching information into the DataFrame, and save data as \texttt{.csv} file.
-\end{itemize}
+1. Push button \texttt{Browse Files} to upload \texttt{.txt} files with electrical impedance spectroscopy data.
+2. Help menu explaining the format files to be received; help hints boxes to report whether a file was added previously or it is already in the optimization zone; and help tips on buttons.
+3. Choosing the file data since Select tag.
+4. Buttons $\texttt{Add data}$ and $\texttt{Remove}$, to add or remove data to the optimization zone.
+5. Buttons $\texttt{Run}$ and $\texttt{Reset}$, to start the optimization, create the plots and return the DataFrame with the parameters.
+6. Figures: wide mode and saving options.
+7. Table: wide mode, searching information into the DataFrame, and save data as $\texttt{.csv}$ file.
 
 ## License information:
 
