@@ -2,21 +2,16 @@
 
 This software tool works to analyze impedance measurements through a lumped circuital model.
 
-The user can upload the impedance measurements in format .txt
-
-## The left sidebar contains:
-
-This object contains the elements that will be presented in the left sidebar, such as i) the uploading file option, ii) the lumped circuit model, iii) Add and Remove buttons to move data in the Optimization zone, iv) Run and Reset buttons to start and clear the optimization.
-
-
-
 ## The repository contains:
 
 - The Python module called [KDssZ.py](https://github.com/dantrica/Streamlit_cement_impedance/blob/c79735cefb679f8cb21de758db89e5011d7d15d4/KDssZ.py) contains the algorithms to optimize the electrical impedance measurements.
+- The Python module called [appZ.py](https://github.com/dantrica/Streamlit_cement_impedance/blob/b421c1652a15b18d4e0220819822e362abc5bec6/appZ.py) contains the code to deploy the application on the Streamlit platform.
 - All [data](https://github.com/dantrica/Streamlit_cement_impedance/tree/c79735cefb679f8cb21de758db89e5011d7d15d4/data) acquired during the experimental campaign is located in this repository Streamlit_cement_impedance/data/.
-- The [Figures](https://github.com/dantrica/Streamlit_cement_impedance/tree/c79735cefb679f8cb21de758db89e5011d7d15d4/figures) folder, where the new dataframes (Excel files), figures (.png files), or new series (.txt files) are saved.
-- Some python [scripts](scripts) that can be called by [analytics_GO.ipynb](analytics_GO.ipynb) to improve the mechanical or electrical characterization.
-- The [Simulink](/Simulink) folder conotains the Simulink scripts (files with extension .slx) and the parameter estimator files for each rGO-cement composites frabricated.
+- The [Figures](https://github.com/dantrica/Streamlit_cement_impedance/tree/c79735cefb679f8cb21de758db89e5011d7d15d4/figures) folder contains an image describing the lumped circuit model.
+
+## The left sidebar functionalities:
+
+The user can upload the impedance measurements in format .txt. Moreover, this object contains the elements that will be presented in the left sidebar, such as i) the uploading file option, ii) the lumped circuit model, iii) Add and Remove buttons to move data in the Optimization zone, iv) Run and Reset buttons to start and clear the optimization.
 
 ## Project Description: 
 
@@ -24,20 +19,32 @@ $\texttt{KDssZ}$ has been developed to optimize experimental electrical impedanc
 
 ## Usage instructions:
 
-The module must be [analytics_GO.ipynb](analytics_GO.ipynb) uploaded to Google Drive and opened with Google Collaboratory. Then, the folders [data](/data), [scripts](/scripts), and [outputs](/outputs) must be uploaded to the Google Colab folder. 
+The main functionalities of the software KDssZ are displayed in Figure~\ref{}, and enumerated according to the following list:
+
+$\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/features.pdf}
+    \caption{Features of the web software KDssZ.}
+    \label{fig:fea}
+\end{figure}$
+
+$\begin{itemize}
+    \item[1.] Push button \texttt{Browse Files} to upload \texttt{.txt} files with electrical impedance spectroscopy data.
+    \item[2.] Help menu explaining the format files to be received; help hints boxes to report a file was added previously or it is already in the optimization zone; and help tips on buttons.
+    \item[3.] Choosing the file data since Select tag.
+    \item[4.] Buttons \texttt{Add data} and \texttt{Remove}, to add or remove data to the optimization zone.
+    \item[5.] Buttons \texttt{Run} and \texttt{Reset}, to start the optimization, create the plots and return the DataFrame with the parameters.
+    \item[6.] Figures: wide mode and saving options.
+    \item[7.] Table: wide mode, searching information into the DataFrame, and save data as \texttt{.csv} file.
+\end{itemize}$
 
 ## License information:
 
-The module [analytics_GO.ipynb](analytics_GO.ipynb) is open source and published under the GPL option. Nevertheless, the Matlab files require the user get has a LICENCE agreement with Matlab.
-
+The application [KDssZ](https://kdssz-impedance.streamlit.app/) is open source and published under the GPL option on the [Streamlit](https://streamlit.io/) platform.
 ## Troubleshooting:
 
-The users must be take into account that the pandas' library requires the openpyxl module. Google collaboratory uses to update the version of this library periodically. Then, the users must modify the version of openpyxl on the section <b>0.3. Importing the libraries: lmfit, pro_data, ... from the Colab directory in Google Drive.</b> into the module [analytics_GO.ipynb](analytics_GO.ipynb)
-
-### Matlab:
-The authors have tested the Matlab (Simulink model) scripts with Matlab 9.12 (R2022a), but it should be compatible also with older versions.
-
+The users must take into account that the pandas' library requires the openpyxl module. Other requirements can be found in [requirements.txt](https://github.com/dantrica/Streamlit_cement_impedance/blob/b421c1652a15b18d4e0220819822e362abc5bec6/requirements.txt)
 
 ## Contact information:
 
-For support, comments or sugestions feel free to contact dantrica@saber.uis.edu.co
+For support, comments or sugestions feel free to contact daniel.triana.camacho@gmail.com
