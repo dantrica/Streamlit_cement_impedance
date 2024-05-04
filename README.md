@@ -12,7 +12,7 @@ This object contains the elements that will be presented in the left sidebar, su
 
 ## The repository contains:
 
-- The Python module called [KDssZ.py](analytics_GO.ipynb) to compute the electromechanical characterization.
+- The Python module called [KDssZ.py]([analytics_GO.ipynb](https://github.com/dantrica/Streamlit_cement_impedance/blob/main/KDssZ.py)) to compute the electromechanical characterization.
 - All [sample data](/data) acquired during the experimental campaign. Herein is located the main DataFrame "Medidas_GO.xlsx", which contains the information about the measurements performed and specimens fabrication procedures.
 - The [output files](/outputs), where the new dataframes (Excel files), figures (.png files), or new series (.txt files) are saved.
 - Some python [scripts](scripts) that can be called by [analytics_GO.ipynb](analytics_GO.ipynb) to improve the mechanical or electrical characterization.
@@ -20,7 +20,7 @@ This object contains the elements that will be presented in the left sidebar, su
 
 ## Project Description: 
 
-$\texttt{Pypiezo-GO}$ comprises a sequence of methods developed in Python language and implemented on a Google Colaboratory notebook apt for efficient cloud computing. The experimental database is organised with a DataFrame called $\texttt{Medidas GO.xlsx}$ including the paths and metadata of the experimental measurement files. In particular, the experimental database includes the measurement records extracted from cyclic voltammetry (CV), open circuit potential (OCP), and compressive testing (CT), as reported in reference [Triana-Camacho2023](https://doi.org/10.1016/j.cemconcomp.2023.105063). On this basis, $\texttt{Pypiezo-GO}$ synchronizes the mechanical and electrical records and calculates the effective capacitance and the piezoelectric parameters of voltage $g_{33}$ and charge $d_{33}$, which represent the key features of these materials for their use as strain sensors. The code also includes the possibility of calibrating a lumped equivalent circuiy developed in MATLAB/Simulink for signal processing applications.
+$\texttt{KDssZ}$ has been developed to optimize experimental electrical impedance data to a lumped circuit model. This approach allows users to correlate the interactions among the components in the composite-electrodes, cement, nanoparticles, and pores with the measured impedance, which is analyzed across three frequency ranges: high, medium, and low. Although the software has been validated with impedance measurements from gold nanoparticles/cement-based composites, it can also be used to study the electrical properties of other cement-based composites. KDssZ is deployed on the Streamlit platform, and in line with the principles of open science, it allows researchers working on similar studies to use this tool to explore new research questions related to cement-based composites.
 
 ## Usage instructions:
 
