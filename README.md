@@ -12,9 +12,9 @@ This object contains the elements that will be presented in the left sidebar, su
 
 ## The repository contains:
 
-- The Python module called [KDssZ.py]([analytics_GO.ipynb](https://github.com/dantrica/Streamlit_cement_impedance/blob/main/KDssZ.py)) to compute the electromechanical characterization.
-- All [sample data](/data) acquired during the experimental campaign. Herein is located the main DataFrame "Medidas_GO.xlsx", which contains the information about the measurements performed and specimens fabrication procedures.
-- The [output files](/outputs), where the new dataframes (Excel files), figures (.png files), or new series (.txt files) are saved.
+- The Python module called [KDssZ.py](https://github.com/dantrica/Streamlit_cement_impedance/blob/c79735cefb679f8cb21de758db89e5011d7d15d4/KDssZ.py) contains the algorithms to optimize the electrical impedance measurements.
+- All [data](https://github.com/dantrica/Streamlit_cement_impedance/tree/c79735cefb679f8cb21de758db89e5011d7d15d4/data) acquired during the experimental campaign is located in this repository Streamlit_cement_impedance/data/.
+- The [Figures](https://github.com/dantrica/Streamlit_cement_impedance/tree/c79735cefb679f8cb21de758db89e5011d7d15d4/figures) folder, where the new dataframes (Excel files), figures (.png files), or new series (.txt files) are saved.
 - Some python [scripts](scripts) that can be called by [analytics_GO.ipynb](analytics_GO.ipynb) to improve the mechanical or electrical characterization.
 - The [Simulink](/Simulink) folder conotains the Simulink scripts (files with extension .slx) and the parameter estimator files for each rGO-cement composites frabricated.
 
