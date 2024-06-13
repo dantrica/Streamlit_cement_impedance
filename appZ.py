@@ -25,7 +25,7 @@ KDss = KDssZ()
 st.set_page_config(layout="wide")
 
 # Welcome message on the title
-title = 'Welcome to the key data source since impedance (KDssZ)'
+title = 'Welcome to the key data source for sampling impedance measurements (KDssZ)'
 st.title(title)
 
 # Software description in brief
