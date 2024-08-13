@@ -32,6 +32,7 @@ The main functionalities of the software KDssZ are enumerated according to the f
 ## License information:
 
 The application [KDssZ](https://kdssz-impedance.streamlit.app/) is open source and published under the GPL option on the [Streamlit](https://streamlit.io/) platform.
+
 ## Troubleshooting:
 
 The users must take into account that the pandas' library requires the openpyxl module. Other requirements can be found in [requirements.txt](https://github.com/dantrica/Streamlit_cement_impedance/blob/b421c1652a15b18d4e0220819822e362abc5bec6/requirements.txt)
