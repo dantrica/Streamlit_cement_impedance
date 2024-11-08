@@ -67,7 +67,23 @@ with st.sidebar:
             help='''Select here the measure to add or remove in the 
                 optimization zone'''
             )
-    
+        
+        #----------------------------------------------------------------------
+        # Frequencies inputs
+        st.title("Frequency Input")
+        st.write("To fill out frequency values. Recommended values: freq_low=1, freq_mid=10e3, y freq_high=25e3")
+        
+        # Numeric inputs
+        freq_low = st.number_input('Low Frequency', value=0.5, help='Suggested value: 1 Hz')
+        freq_mid = st.number_input('Mid Frequency', value=10e3, help='Suggested value: 10,000 Hz')
+        freq_high = st.number_input('High Frequency)', value=25e3, help='Suggested value: 25,000 Hz')
+        
+        # To show frequencies
+        st.write("Low Frequency:", freq_low)
+        st.write("Mid Frequency:", freq_mid)
+        st.write("High Frequency:", freq_high)
+        #----------------------------------------------------------------------
+        
         # Create two columns
         sidebar_col1, sidebar_col2 = st.columns(2)
     
@@ -150,7 +166,7 @@ with st.container():
     "α3 | low freq",
     "R2 [Ω] | middle freq",
     "𝜏2 [s] | middle freq",
-    "α2 | middle freq"
+    "α2 | middle freq",
     ]
     model_data = {
         'sample':[]
@@ -171,7 +187,8 @@ with st.container():
         Z = KDss.impedances[i]
         p = 10*[np.nan]
         if max(f) > 100e3:
-            p, Z_model, fm = KDss.model(i, f, Z, f_hight=25e3, f_middle=10e3, f_low=1, label=label)
+            # p, Z_model, fm = KDss.model(i, f, Z, f_hight=25e3, f_middle=10e3, f_low=1, label=label)
+            p, Z_model, fm = KDss.model(i, f, Z, f_hight=freq_high, f_middle=freq_mid, f_low=freq_low, label=label)
             
         params.append(p)
         model_data['sample'].append(KDss.labels[i])
@@ -180,6 +197,7 @@ with st.container():
             if key == 6:
                 this_val = 1 - val
             model_data[param_labels[key]].append(this_val)
+            
         fdata.append(f)
         Zreal.append(np.real(Z)*1e-3)
         Zimag.append(-np.imag(Z)*1e-3)
@@ -206,14 +224,15 @@ with st.container():
     
     # Nyquist plot
     with sidebar_col5:
-        fig1 = plt.figure(1)
         
         if len(KDss.labels) == 0:
             sl = ''
             xlim = 30
             ylim = 30
         elif len(KDss.labels) == 1:
-            sl = KDss.labels[0], 'Model Fitting'
+            sl1 = KDss.labels[0]
+            sl2 = sl1.split(".txt")
+            sl = sl2[0], 'Model Fitting'
             # Nyquist plot limmits
             xlim = []
             for sr in Zreal:
@@ -224,7 +243,8 @@ with st.container():
         else:
             sl = []
             for sj in KDss.labels:
-                sl.append(sj)
+                sj = sj.split(".txt")
+                sl.append(sj[0])
             sl.append('Model Fitting')
             # Nyquist plot limmits
             xlim = []
@@ -234,21 +254,23 @@ with st.container():
             for si in Zimag:
                 ylim.append(si.max())
         
+        fig1 = plt.figure(1, dpi=300)
+        
         plt.plot(new_Zreal, new_Zimag, linestyle = 'None', marker='o', markerfacecolor='None')
         plt.plot(new_Zreal_model, new_Zimag_model, 'k:')
-        plt.gca().set_aspect('equal', 'box')
-        plt.xlabel(r"real(Z) [k$\Omega$]")
-        plt.ylabel(r"-imag(Z) [k$\Omega$]")
+        # plt.gca().set_aspect('equal', 'box')
+        plt.xlabel(r"real(Z) [k$\Omega$]", fontsize=11)
+        plt.ylabel(r"-imag(Z) [k$\Omega$]", fontsize=11)
         plt.xlim(0, np.max(xlim))
         plt.ylim(0, np.max(ylim))
-        plt.legend(labels=sl)
+        plt.legend(labels=sl, fontsize=11)
         
         st.pyplot(fig1)
     
     # Bode plot
     with sidebar_col6:
         
-        fig2 = plt.figure(2)
+        fig2 = plt.figure(2, dpi=300)
         plt.subplot(2,1,1)
         plt.semilogx(new_fdata, new_Zreal, linestyle = 'None', marker='o', markerfacecolor='None')
         plt.semilogx(new_f_model, new_Zreal_model, 'k:')#, lw=2, markerfacecolor='None', alpha=0.7)
@@ -257,22 +279,21 @@ with st.container():
         plt.semilogx(new_f_model, new_Zimag_model, 'k:')#, lw=2, markerfacecolor='None', alpha=0.7)
         #----------------------------------------------------------------------
         plt.subplot(2,1,1)
-        plt.xlim(0.1, 1e6)
+        plt.xlim(0.1, 1.5e6)
         plt.ylim(0, np.max(xlim))
-        plt.xlabel('Frequency [Hz]')
-        plt.ylabel(r"real(Z) [k$\Omega$]")
+        plt.ylabel(r"real(Z) [k$\Omega$]", fontsize=11)
         plt.gca().yaxis.set_label_position("right")
         plt.gca().yaxis.tick_right()
         plt.legend(labels=sl)
         #----------------------------------------------------------------------
         plt.subplot(2,1, 2)
-        plt.xlim(0.1, 1e6)
+        plt.xlim(0.1, 1.5e6)
         plt.ylim(0, np.max(ylim))
-        plt.xlabel('Frequency [Hz]')
-        plt.ylabel(r"-imag(Z)  [k$\Omega$]")
+        plt.xlabel('Frequency [Hz]', fontsize=11)
+        plt.ylabel(r"-imag(Z)  [k$\Omega$]", fontsize=11)
         plt.gca().yaxis.set_label_position("right")
         plt.gca().yaxis.tick_right()
-        plt.legend(labels=sl)
+        plt.legend(labels=sl, fontsize=11)
         
         st.pyplot(fig2)
         
@@ -280,7 +301,6 @@ with st.container():
         
 columns = [param_labels[i] for i in [0, 1, 2, 3, 7, 8, 9, 4, 5, 6]]
 model_df = pd.DataFrame(model_data, columns=columns)
-
 
 # DataFrame which contains the optimized parameters
 with st.container():
