@@ -205,7 +205,8 @@ class KDssZ:
         print('Medium frequency phenomena (slope, intercept)', p1)
 
         C = 1 / (2j * np.pi * f * Z)
-    
+
+        # Params based on physical information
         Ci, DC, tau_c, alpha_c = self.get_cole_params(f, C)
         cole_cole_fixed_params = [Xi, DX, tau, alpha]
         CPE_params = [max(np.real(Z)), 1, 2 * np.arctan(1/slope1) / np.pi] # CPE start parameters: Zo, tau, alpha
@@ -217,10 +218,16 @@ class KDssZ:
         if any(np.isnan(opt_params)):
             return 10*[np.nan]
         
-        Z2 = self.impedance_model(f_, opt_params) # datos del modelo
+        Z2 = self.impedance_model(f_, opt_params) # data of the model
+
+        Zmodel = self.impedance_model(f, opt_params) # data of the model
+        Zdata = Z
+        error_real = np.sum((np.real(Zdata)-np.real(Zmodel))**2) / np.sum(np.real(Zdata)**2)
+        error_imag = np.sum((-np.imag(Zdata)-(-np.imag(Zmodel)))**2) / np.sum((-np.imag(Zdata))**2)
+        error_Z = np.sqrt(np.sum(error_real**2 + error_imag**2))
     
         C_ = self.cole_cole(f2, Ci, DC, tau_c, alpha_c)
         C2 = 1 / (2j * np.pi * f_ * Z2)
         C1 = 1 / (2j * np.pi * f_ * Z_)
 
-        return opt_params, Z2, f_
+        return opt_params, Z2, f_, error_Z
