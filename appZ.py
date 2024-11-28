@@ -181,14 +181,14 @@ with st.container():
     f_model = []
     Zreal_model = []
     Zimag_model = []
+    error = []
     for i, label in enumerate(KDss.labels):
         print(i)
         f = KDss.freqs[i] 
         Z = KDss.impedances[i]
         p = 10*[np.nan]
         if max(f) > 100e3:
-            # p, Z_model, fm = KDss.model(i, f, Z, f_hight=25e3, f_middle=10e3, f_low=1, label=label)
-            p, Z_model, fm = KDss.model(i, f, Z, f_hight=freq_high, f_middle=freq_mid, f_low=freq_low, label=label)
+            p, Z_model, fm, error_Z = KDss.model(i, f, Z, f_hight=freq_high, f_middle=freq_mid, f_low=freq_low, label=label)
             
         params.append(p)
         model_data['sample'].append(KDss.labels[i])
@@ -201,6 +201,7 @@ with st.container():
         fdata.append(f)
         Zreal.append(np.real(Z)*1e-3)
         Zimag.append(-np.imag(Z)*1e-3)
+        error.append(error_Z)
         
         if 'fm' in globals():
             f_model.append(fm)
@@ -301,7 +302,7 @@ with st.container():
         
 columns = [param_labels[i] for i in [0, 1, 2, 3, 7, 8, 9, 4, 5, 6]]
 model_df = pd.DataFrame(model_data, columns=columns)
-
+model_df["error Z*"] = error
 # DataFrame which contains the optimized parameters
 with st.container():
     edited_model_df = st.data_editor(
