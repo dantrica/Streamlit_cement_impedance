@@ -74,7 +74,7 @@ with st.sidebar:
         st.write("To fill out frequency values. Recommended values: freq_low=1, freq_mid=10e3, y freq_high=25e3")
         
         # Numeric inputs
-        freq_low = st.number_input('Low Frequency', value=0.5, help='Suggested value: 1 Hz')
+        freq_low = st.number_input('Low Frequency', value=0.11, help='Suggested value: 0.11 Hz')
         freq_mid = st.number_input('Mid Frequency', value=10e3, help='Suggested value: 10,000 Hz')
         freq_high = st.number_input('High Frequency)', value=25e3, help='Suggested value: 25,000 Hz')
         
