@@ -144,7 +144,7 @@ with st.sidebar:
     if os.path.exists(imagen):
         st.image(
             imagen, caption='Model: three frequencies mode',
-            use_column_width=True
+            use_container_width=True
             )
     else:
         st.write('The image is not in the filepath: '+imagen)
