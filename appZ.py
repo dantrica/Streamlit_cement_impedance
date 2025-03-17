@@ -44,7 +44,7 @@ with st.sidebar:
     imagen0 = 'figures/Logos.png'
     if os.path.exists(imagen0):
         st.image(
-            imagen,
+            imagen0,
             use_container_width=True,
             width = 100,
             )
