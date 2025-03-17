@@ -39,6 +39,18 @@ if 'selected_filename' not in st.session_state:
 #------------------------------------------------------------------------------
 # Building the left option sidebar
 with st.sidebar:
+
+    # Presenting the figure of the university logos
+    imagen0 = 'figures/Logos.png'
+    if os.path.exists(imagen0):
+        st.image(
+            imagen,
+            use_container_width=True,
+            width = 100,
+            )
+    else:
+        st.write('The image is not in the filepath: '+imagen0)
+
     sidebar_title = "KDssZ Options"
     st.sidebar.title(sidebar_title)
     
@@ -46,9 +58,8 @@ with st.sidebar:
     files_txt = st.file_uploader(
         label="Upload Z data", 
         accept_multiple_files=True,
-        help='''Upload all .txt files that contains impedance measurements 
-            from PGSTAT206 by AUTOLAB, and those were extracted with 
-            the software NOVA 2.0'''
+        help='''Upload all .txt files that contain impedance measurements
+        from the potentiostat models PGSTAT206 and PalmSense4 by Autolab and PalmSnese, respectively.'''
         )
     
     # Asking if is there elements in the list
@@ -309,3 +320,13 @@ with st.container():
         model_df,
         hide_index=True,
     )
+
+st.caption("_This software was developed by :blue[Daniel A. Triana-Camacho, "
+"David A. Miranda, Andrea Meoni, Antonella D’Alessandro, Filippo Ubertini, "
+"Jorge H. Quintero-Orozco] at the University of Perugia and the Universidad "
+"Industrial de Santander within the SMS-SAFEST FIS Advanced Grant funded by "
+"the Italian Ministry of University and Research and is provided under the GPL license. "
+"When using the software, please reference the paper "
+":blue[KDssZ: A Web-Based Open-Access Tool for Physics-Based Impedance Measurements "
+"in Cement-Based Composites]. The authors and project funders disclaim any "
+"responsibility for how researchers or third parties utilize this software._", unsafe_allow_html=True)
