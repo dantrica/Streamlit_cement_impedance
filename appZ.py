@@ -309,5 +309,3 @@ with st.container():
         model_df,
         hide_index=True,
     )
-
-st.markdown("<p style='font-size:12px; color:gray;'>*This software was developed by [OUR NAMES] at the University of Perugia and the University of Santander within the SMS-SAFEST FIS Advanced Grant funded by the Italian Ministry of University and Research and is provided under [XXX LICENSE]. When using the software, please reference the paper [PAPER TITLE]. The authors and project funders disclaim any responsibility for how researchers or third parties utilize this software."*", unsafe_allow_html=True)
