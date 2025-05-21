@@ -187,7 +187,7 @@ class KDssZ:
         return opt.x[0]
 
     def model(self, i, f, Z, label, f_hight=25000, f_middle=10000, 
-                       f_low=0.11, f_=np.logspace(-2, 8, 2000), f2=np.logspace(-5, 8, 2000)):
+                       f_low=0.11, f_=np.logspace(-2, 8, 2500), f2=np.logspace(-5, 8, 2500)):
         
         Xi, DX, tau, alpha = self.get_cole_params(f[f>f_hight], Z[f>f_hight])
         Z_ = self.cole_cole(f_, Xi, DX, tau, alpha) # Xi + DX / ( 1 + (2j*np.pi*f_*tau)**(1-alpha) )#
@@ -197,8 +197,8 @@ class KDssZ:
         p = np.polyfit(x, y, 1)
         x_ = np.linspace(-p[1]/p[0], max(x), 10)
     
-        x1 = np.real(Z)[(f=>f_low) & (f<=f_middle)]
-        y1 = -np.imag(Z)[(f=>f_low) & (f<=f_middle)]
+        x1 = np.real(Z)[(f>=f_low) & (f<=f_middle)]
+        y1 = -np.imag(Z)[(f>=f_low) & (f<=f_middle)]
         slope1 = self.get_linear_slope(x1, y1)
         p1 = [slope1, 0]
         #p1 = np.polyfit(x1, y1, 1)
