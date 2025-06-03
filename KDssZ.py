@@ -56,12 +56,12 @@ class KDssZ:
         def f_2b(c):
             """ calculate the algebraic distance between the 2D points and the mean circle centered at c=(-xc, -yc, C) """
             A, B, C = c
+            x = np.real(X)
+            y = np.imag(X)
             Xi = x[0] # Xi = 100
             if A**2 >= C:
                 R = np.sqrt(A**2 + B**2 - C)
                 Xi = A + np.sqrt( A**2 - C )
-            x = np.real(X)
-            y = np.imag(X)
             r = x**2 + y**2 + 2*x*A + 2*y*B + C
             if Xi < 0:
                 return 10*r
