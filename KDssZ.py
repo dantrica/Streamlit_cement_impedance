@@ -56,7 +56,7 @@ class KDssZ:
         def f_2b(c):
             """ calculate the algebraic distance between the 2D points and the mean circle centered at c=(-xc, -yc, C) """
             A, B, C = c
-            Xi = 100
+            Xi = x[0] # Xi = 100
             if A**2 >= C:
                 R = np.sqrt(A**2 + B**2 - C)
                 Xi = A + np.sqrt( A**2 - C )
@@ -97,7 +97,7 @@ class KDssZ:
             
         X1 = self.cole_cole(f, Xi1, DX, get_tau(Xi1), alpha)
         X2 = self.cole_cole(f, Xi2, DX, get_tau(Xi2), alpha)
-        Xi = Xi1
+        Xi = np.real(X)[0] # Xi = Xi1
         tau = get_tau(Xi1)
         if sum(np.abs(X1 - X)**2) > sum(np.abs(X2 - X)**2):
             Xi = Xi2
