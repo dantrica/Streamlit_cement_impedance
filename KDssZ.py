@@ -186,10 +186,10 @@ class KDssZ:
         opt = optimize.least_squares(err, 1, bounds=(0, np.inf))
         return opt.x[0]
 
-    def model(self, i, f, Z, label, f_hight=25000, f_middle=10000, 
+    def model(self, i, f, Z, label, f_high=25000, f_middle=10000, 
                        f_low=0.11, f_=np.logspace(-2, 8, 2500), f2=np.logspace(-5, 8, 2500)):
         
-        Xi, DX, tau, alpha = self.get_cole_params(f[f>f_hight], Z[f>f_hight])
+        Xi, DX, tau, alpha = self.get_cole_params(f[f>f_high], Z[f>f_high])
         Z_ = self.cole_cole(f_, Xi, DX, tau, alpha) # Xi + DX / ( 1 + (2j*np.pi*f_*tau)**(1-alpha) )#
         
         x = np.real(Z)[f<f_low]
